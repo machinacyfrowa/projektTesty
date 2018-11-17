@@ -1,0 +1,71 @@
+1.Przesy³anie stringów - klient - serwer
+Za³o¿enia: Klient wpisuje dowoln¹ treœæ w oknie wiadomoœci po czym serwer poprawnie odbiera t¹ wiadomoœæ. 
+- U¿ytkownik wpisuje wiadomoœæ na maszynie klienckiej
+- Klient potwierdza wys³anie
+- Serwer odbiera wiadomoœæ
+- Serwer wyœwietla wiadomoœæ
+- U¿ytkownik sprawdza na serwerze poprawnoœæ wyœwietlonej wiadomoœci
+
+
+
+2. Przesy³anie stringów - serwer - klient
+Za³o¿enia: Serwer wpisuje dowoln¹ treœæ w oknie wiadomoœci po czym klient poprawnie odbiera t¹ wiadomoœæ. 
+- U¿ytkownik wpisuje wiadomoœæ na maszynie serwerowej
+- Serwer potwierdza wys³anie
+- Klient odbiera wiadomoœæ
+- Klient wyœwietla wiadomoœæ
+- U¿ytkownik sprawdza na maszynie klieckiej poprawnoœæ wyœwietlonej wiadomoœci
+
+
+
+3. Przesy³anie plików - klient - serwer
+Za³o¿enia: Klient wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym serwer poprawnie odbiera ten plik i sprawdza jego zawartoœæ.
+- U¿ytkownik tworzy plik tesktowy po czym wpisuje w nim dowoln¹ treœæ.
+- Klient wysy³¹ plik na serwer
+- Serwer odbiera pakiet
+- Serwer zapisuje plik na dysku i wyœwieltla czas trwania operacji
+- U¿ytkownik sprawdza na serwerze poprawnoœæ treœci pliku
+
+
+
+4.Przesy³anie plików - serwer - klient
+Za³o¿enia: Serwer wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym klient poprawnie odbiera ten plik i sprawdza jego zawartoœæ.
+- U¿ytkownik tworzy plik tesktowy po czym wpisuje w nim dowoln¹ treœæ.
+- Serwer wysy³¹ plik do klienta
+- Klient odbiera pakiet
+- Klient zapisuje plik na dysku i wyœwetla czas trwania operacji
+- U¿ytkownik klienta sprawdza poprawnoœæ treœci pliku
+
+
+5.Sprawdzenie po³¹czenia pomiêdzy maszynami
+Za³o¿enie: Serwer jest w stanie komunikowaæ siê z klientem za pomoc¹ komendy Ping
+- U¿ytkownik wpisuje komendê Ping na maszynie klienckiej podaj¹c jej adres IP po czym zatwierdza
+- Serwer odpowiada na ¿¹danie
+- Maszyna kliencka wyœwietla odpowiedŸ serwera
+- U¿ytkownik sprawdza czy serwer odpowiedzia³
+
+6. Sprawdzenie szybkoœci po³¹czenia pomiêdzy maszynami
+Za³o¿enie: Serwer jest w stanie komunikowaæ siê z klientem za pomoc¹ komendy Ping w czasie krótszym ni¿ 1 sekunda
+- U¿ytkownik wpisuje komendê Ping na maszynie klienckiej podaj¹c jej adres IP po czym zatwierdza
+- Serwer odpowiada na ¿¹danie
+- Maszyna kliencka wyœwietla odpowiedŸ serwera
+- U¿ytkownik sprawdza czas reakcji 
+
+
+7.Przesy³anie plików - serwer - klient - wydajnoœæ
+Za³o¿enia: Serwer wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym klient poprawnie odbiera ten plik. Serwer powinien wykonaæ t¹ operacjê w czasie krótszym ni¿:<czas>
+- Serwer wysy³a plik do klienta
+- Klient odbiera pakiet
+- Klient zapisuje plik na dysku i wyœwietla czas trwania operacji
+- U¿ytkownik klienta weryfikuje czas trwania ¿¹dania
+
+
+8. Przesy³anie plików - klient - serwer - wydajnoœæ
+Za³o¿enia: Klient wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym serwer poprawnie odbiera ten plik. Klient powinien wykonaæ t¹ operacjê w czasie krótszym ni¿:<czas>
+- Klient wysy³a plik na serwer
+- Serwer odbiera pakiet
+- Serwer zapisuje plik na dysku i wyœwietla czas trwania operacji
+- U¿ytkownik serwera weryfikuje czas trwania ¿¹dania
+
+9.
+
