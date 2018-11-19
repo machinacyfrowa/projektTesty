@@ -1,71 +1,79 @@
-1.Przesy³anie stringów - klient - serwer
-Za³o¿enia: Klient wpisuje dowoln¹ treœæ w oknie wiadomoœci po czym serwer poprawnie odbiera t¹ wiadomoœæ. 
-- U¿ytkownik wpisuje wiadomoœæ na maszynie klienckiej
-- Klient potwierdza wys³anie
-- Serwer odbiera wiadomoœæ
-- Serwer wyœwietla wiadomoœæ
-- U¿ytkownik sprawdza na serwerze poprawnoœæ wyœwietlonej wiadomoœci
+1.PrzesyÅ‚anie stringÃ³w - klient - serwer
+ZaÅ‚oÅ¼enia: Klient wpisuje dowolnÄ… treÅ›Ä‡ w oknie wiadomoÅ›ci po czym serwer poprawnie odbiera tÄ… wiadomoÅ›Ä‡. 
+- UÅ¼ytkownik wpisuje wiadomoÅ›Ä‡ na maszynie klienckiej
+- Klient potwierdza wysÅ‚anie
+- Serwer odbiera wiadomoÅ›Ä‡
+- Serwer wyÅ›wietla wiadomoÅ›Ä‡
+- UÅ¼ytkownik sprawdza na serwerze poprawnoÅ›Ä‡ wyÅ›wietlonej wiadomoÅ›ci
 
 
 
-2. Przesy³anie stringów - serwer - klient
-Za³o¿enia: Serwer wpisuje dowoln¹ treœæ w oknie wiadomoœci po czym klient poprawnie odbiera t¹ wiadomoœæ. 
-- U¿ytkownik wpisuje wiadomoœæ na maszynie serwerowej
-- Serwer potwierdza wys³anie
-- Klient odbiera wiadomoœæ
-- Klient wyœwietla wiadomoœæ
-- U¿ytkownik sprawdza na maszynie klieckiej poprawnoœæ wyœwietlonej wiadomoœci
+2. PrzesyÅ‚anie stringÃ³w - serwer - klient
+ZaÅ‚oÅ¼enia: Serwer wpisuje dowolnÄ… treÅ›Ä‡ w oknie wiadomoÅ›ci po czym klient poprawnie odbiera tÄ… wiadomoÅ›Ä‡. 
+- UÅ¼ytkownik wpisuje wiadomoÅ›Ä‡ na maszynie serwerowej
+- Serwer potwierdza wysÅ‚anie
+- Klient odbiera wiadomoÅ›Ä‡
+- Klient wyÅ›wietla wiadomoÅ›Ä‡
+- UÅ¼ytkownik sprawdza na maszynie klieckiej poprawnoÅ›Ä‡ wyÅ›wietlonej wiadomoÅ›ci
 
 
 
-3. Przesy³anie plików - klient - serwer
-Za³o¿enia: Klient wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym serwer poprawnie odbiera ten plik i sprawdza jego zawartoœæ.
-- U¿ytkownik tworzy plik tesktowy po czym wpisuje w nim dowoln¹ treœæ.
-- Klient wysy³¹ plik na serwer
+3. PrzesyÅ‚anie plikÃ³w - klient - serwer
+ZaÅ‚oÅ¼enia: Klient wysyÅ‚a plik tekstowy z zawartÄ… dowolnÄ… wiadomoÅ›ciÄ… po czym serwer poprawnie odbiera ten plik i sprawdza jego zawartoÅ›Ä‡.
+- UÅ¼ytkownik tworzy plik tesktowy po czym wpisuje w nim dowolnÄ… treÅ›Ä‡.
+- Klient wysyÅ‚Ä… plik na serwer
 - Serwer odbiera pakiet
-- Serwer zapisuje plik na dysku i wyœwieltla czas trwania operacji
-- U¿ytkownik sprawdza na serwerze poprawnoœæ treœci pliku
+- Serwer zapisuje plik na dysku i wyÅ›wieltla czas trwania operacji
+- UÅ¼ytkownik sprawdza na serwerze poprawnoÅ›Ä‡ treÅ›ci pliku
 
 
 
-4.Przesy³anie plików - serwer - klient
-Za³o¿enia: Serwer wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym klient poprawnie odbiera ten plik i sprawdza jego zawartoœæ.
-- U¿ytkownik tworzy plik tesktowy po czym wpisuje w nim dowoln¹ treœæ.
-- Serwer wysy³¹ plik do klienta
+4.PrzesyÅ‚anie plikÃ³w - serwer - klient
+ZaÅ‚oÅ¼enia: Serwer wysyÅ‚a plik tekstowy z zawartÄ… dowolnÄ… wiadomoÅ›ciÄ… po czym klient poprawnie odbiera ten plik i sprawdza jego zawartoÅ›Ä‡.
+- UÅ¼ytkownik tworzy plik tesktowy po czym wpisuje w nim dowolnÄ… treÅ›Ä‡.
+- Serwer wysyÅ‚Ä… plik do klienta
 - Klient odbiera pakiet
-- Klient zapisuje plik na dysku i wyœwetla czas trwania operacji
-- U¿ytkownik klienta sprawdza poprawnoœæ treœci pliku
+- Klient zapisuje plik na dysku i wyÅ›wetla czas trwania operacji
+- UÅ¼ytkownik klienta sprawdza poprawnoÅ›Ä‡ treÅ›ci pliku
 
 
-5.Sprawdzenie po³¹czenia pomiêdzy maszynami
-Za³o¿enie: Serwer jest w stanie komunikowaæ siê z klientem za pomoc¹ komendy Ping
-- U¿ytkownik wpisuje komendê Ping na maszynie klienckiej podaj¹c jej adres IP po czym zatwierdza
-- Serwer odpowiada na ¿¹danie
-- Maszyna kliencka wyœwietla odpowiedŸ serwera
-- U¿ytkownik sprawdza czy serwer odpowiedzia³
+5.Sprawdzenie poÅ‚Ä…czenia pomiÄ™dzy maszynami
+ZaÅ‚oÅ¼enie: Serwer jest w stanie komunikowaÄ‡ siÄ™ z klientem za pomocÄ… komendy Ping
+- UÅ¼ytkownik wpisuje komendÄ™ Ping na maszynie klienckiej podajÄ…c jej adres IP po czym zatwierdza
+- Serwer odpowiada na Å¼Ä…danie
+- Maszyna kliencka wyÅ›wietla odpowiedÅº serwera
+- UÅ¼ytkownik sprawdza czy serwer odpowiedziaÅ‚
 
-6. Sprawdzenie szybkoœci po³¹czenia pomiêdzy maszynami
-Za³o¿enie: Serwer jest w stanie komunikowaæ siê z klientem za pomoc¹ komendy Ping w czasie krótszym ni¿ 1 sekunda
-- U¿ytkownik wpisuje komendê Ping na maszynie klienckiej podaj¹c jej adres IP po czym zatwierdza
-- Serwer odpowiada na ¿¹danie
-- Maszyna kliencka wyœwietla odpowiedŸ serwera
-- U¿ytkownik sprawdza czas reakcji 
+6. Sprawdzenie szybkoÅ›ci poÅ‚Ä…czenia pomiÄ™dzy maszynami
+ZaÅ‚oÅ¼enie: Serwer jest w stanie komunikowaÄ‡ siÄ™ z klientem za pomocÄ… komendy Ping w czasie krÃ³tszym niÅ¼ 1 sekunda
+- UÅ¼ytkownik wpisuje komendÄ™ Ping na maszynie klienckiej podajÄ…c jej adres IP po czym zatwierdza
+- Serwer odpowiada na Å¼Ä…danie
+- Maszyna kliencka wyÅ›wietla odpowiedÅº serwera
+- UÅ¼ytkownik sprawdza czas reakcji 
 
 
-7.Przesy³anie plików - serwer - klient - wydajnoœæ
-Za³o¿enia: Serwer wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym klient poprawnie odbiera ten plik. Serwer powinien wykonaæ t¹ operacjê w czasie krótszym ni¿:<czas>
-- Serwer wysy³a plik do klienta
+7.PrzesyÅ‚anie plikÃ³w - serwer - klient - wydajnoÅ›Ä‡
+ZaÅ‚oÅ¼enia: Serwer wysyÅ‚a plik tekstowy z zawartÄ… dowolnÄ… wiadomoÅ›ciÄ… po czym klient poprawnie odbiera ten plik. Serwer powinien wykonaÄ‡ tÄ… operacjÄ™ w czasie krÃ³tszym niÅ¼:<czas>
+- Serwer wysyÅ‚a plik do klienta
 - Klient odbiera pakiet
-- Klient zapisuje plik na dysku i wyœwietla czas trwania operacji
-- U¿ytkownik klienta weryfikuje czas trwania ¿¹dania
+- Klient zapisuje plik na dysku i wyÅ›wietla czas trwania operacji
+- UÅ¼ytkownik klienta weryfikuje czas trwania Å¼Ä…dania
 
 
-8. Przesy³anie plików - klient - serwer - wydajnoœæ
-Za³o¿enia: Klient wysy³a plik tekstowy z zawart¹ dowoln¹ wiadomoœci¹ po czym serwer poprawnie odbiera ten plik. Klient powinien wykonaæ t¹ operacjê w czasie krótszym ni¿:<czas>
-- Klient wysy³a plik na serwer
+8. PrzesyÅ‚anie plikÃ³w - klient - serwer - wydajnoÅ›Ä‡
+ZaÅ‚oÅ¼enia: Klient wysyÅ‚a plik tekstowy z zawartÄ… dowolnÄ… wiadomoÅ›ciÄ… po czym serwer poprawnie odbiera ten plik. Klient powinien wykonaÄ‡ tÄ… operacjÄ™ w czasie krÃ³tszym niÅ¼:<czas>
+- Klient wysyÅ‚a plik na serwer
 - Serwer odbiera pakiet
-- Serwer zapisuje plik na dysku i wyœwietla czas trwania operacji
-- U¿ytkownik serwera weryfikuje czas trwania ¿¹dania
+- Serwer zapisuje plik na dysku i wyÅ›wietla czas trwania operacji
+- UÅ¼ytkownik serwera weryfikuje czas trwania Å¼Ä…dania
 
-9.
+9.PrzesyÅ‚anie pliku w zaÅ‚Ä…czniku
+
+ZaÅ‚oÅ¼enia: Klient wysyÅ‚a plik w zaÅ‚Ä…czniku z dowolnÄ… treÅ›ciÄ… wiadomoÅ›ci po czym serwer poprawnie odbiera plik dajÄ…c status Complet.
+
+- Klient wysyÅ‚a wiadomoÅ›Ä‡ z zaÅ‚Ä…czikiem na serwer
+- Serwer odbiera plik
+- Serwer zapisuje plik na dysku i wyÅ›wietla czas trwania operacji
+- UÅ¼ytkownik serwera weryfikuje czas trwania Å¼Ä…dania
+Ps. Nie wiem, jak bardzo zmieni siÄ™ czas trwania operacji jeÅ›li przeprowadzimy testy przy rÃ³Å¼nej wielkoÅ›ci zaÅ‚Ä…cznikach
 
