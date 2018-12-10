@@ -1,4 +1,4 @@
 # znowukurwadziurewicz <br>
-Dostępne przełączniki dla klienta: \n
+Dostępne przełączniki dla klienta: <br>
 -v - tryb gadatliwy - wali wszystkim na ekran \n
 -t xxx - załaduj plik xxx z komendami testowymi \n
