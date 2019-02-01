@@ -1,0 +1,55 @@
+using System;
+using System.Diagnostics;
+
+public class TestsController
+{
+    static int switchCase;
+    public static void ExecuteCommand(string command)
+        {
+            Process proc = new System.Diagnostics.Process ();
+            proc.StartInfo.FileName = "/bin/bash";
+            proc.StartInfo.Arguments = "-c \" " + command + " \"";
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.Start ();
+
+            while (!proc.StandardOutput.EndOfStream) {
+                Console.WriteLine (proc.StandardOutput.ReadLine ());
+            }
+        }
+
+    static public void Main ()
+    {	
+	ExecuteCommand("rm result.txt");
+	ExecuteCommand("echo -n > result.txt");
+	TestCase();
+    }
+
+    public static void TestCase()
+    {   
+	Console.WriteLine("Podaj nr. Testu (1-9)(TRIAL DZIALA TYLKO 1!)"); 
+        switchCase=Int32.Parse(Console.ReadLine());
+        switch(switchCase)
+        {
+           case 1:
+              Console.WriteLine("Zajebiście");
+	      TestCase1();
+              break;
+   	   default:
+      	      Console.WriteLine("Error kurwa!");
+	      TestCase();
+	      break;
+        }
+    }
+    
+    public static void TestCase1()
+    {
+       ExecuteCommand("echo Sprawdz mnie kurwa > TestCase1.txt");
+       ExecuteCommand("./client/client -t TestCase1.txt -o output.txt");
+       ExecuteCommand("rm TestCase1.txt");
+       ExecuteCommand("cat output.txt");
+       ExecuteCommand("echo wynik TC1: >> result.txt");
+       ExecuteCommand("cat output.txt >> result.txt"); 
+    }	
+}
+
