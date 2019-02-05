@@ -32,7 +32,6 @@ int main (int argc, char **argv)
 	struct sockaddr_in address; 
    	int sock = 0, valread; 
     	struct sockaddr_in serv_addr; 
-   	char *hello = "Client test message"; 
    	char buffer[1024] = {0}; 
     	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) { 
         	perror("Socket creation error: "); 
@@ -92,20 +91,25 @@ int main (int argc, char **argv)
 			string line;
 			srand (time(NULL));
     			while (getline(inputFile, line)) {
-				string sts = line.substr(2, 1024);
+				string sts = "EMPTY_STRING";
+				if(line.length() > 1) sts = line.substr(2, 1024);
 				switch(line.at(0)) {
 					case 'c':
-						v("Połączenie z xxx.");
+						v("Połączenie z: "+sts);
+						outputFile << "CONN:" << sts << endl; 
 						break;
 					case 's':
-						v("Wysyłanie " + sts);
+						v("Wysyłanie: "+sts);
+						outputFile << "SENT:" << sts << endl; 
 						send(sock , sts.c_str() , 1024 , 0 );
 						break;
 					case 'q':
 						v("Opuszczanie programu.");
+						outputFile << "EXIT" << endl; 
 						break;
 					default:
 						v("Nieprawidłowe polecenie w pliku tekstowym.");
+						outputFile << "ERRO" << endl; 
 						break;
 				}
 			}

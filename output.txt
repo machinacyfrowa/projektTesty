@@ -1,1 +1,5 @@
-PASS
+CONN:127.0.0.1:8080
+SENT:Tekst do wysłania
+SENT:Drugi tekst do wysłania
+SENT:Trzeci tekst do wysłania
+EXIT

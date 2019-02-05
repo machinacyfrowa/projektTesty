@@ -1,5 +1,8 @@
 using System;
 using System.Diagnostics;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 public class TestsController
 {
@@ -18,6 +21,19 @@ public class TestsController
             }
         }
 
+    public static void ExecuteCommand2(string command)
+        {
+            Process proc = new System.Diagnostics.Process ();
+            proc.StartInfo.FileName = "/bin/bash";
+            proc.StartInfo.Arguments = "-c \" " + command + " \"";
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.Start ();
+
+            
+        }
+
+
     static public void Main ()
     {	
 	ExecuteCommand("rm result.txt");
@@ -35,6 +51,9 @@ public class TestsController
               Console.WriteLine("Zajebiście");
 	      TestCase1();
               break;
+	   case 2:
+	      TestCase2();
+	      break;
    	   default:
       	      Console.WriteLine("Error kurwa!");
 	      TestCase();
@@ -50,6 +69,17 @@ public class TestsController
        ExecuteCommand("cat output.txt");
        ExecuteCommand("echo wynik TC1: >> result.txt");
        ExecuteCommand("cat output.txt >> result.txt"); 
-    }	
+    }
+	
+    public static void TestCase2()
+    {
+      	ExecuteCommand("echo test");
+        ExecuteCommand2("setsid ./server/server");
+	Thread.Sleep(4000);
+	ExecuteCommand("echo rodzer dat");
+	ExecuteCommand("./client/client -t xxx.txt -o output.txt");
+      
+    }
+	
 }
 

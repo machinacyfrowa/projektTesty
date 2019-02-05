@@ -1,2 +1,0 @@
-wynik TC1:
-PASS
