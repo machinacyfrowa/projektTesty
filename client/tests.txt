@@ -2,4 +2,5 @@ c 127.0.0.1:8080
 s Tekst do wysłania
 s Drugi tekst do wysłania
 s Trzeci tekst do wysłania
+d
 q

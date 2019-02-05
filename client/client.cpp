@@ -98,6 +98,11 @@ int main (int argc, char **argv)
 						v("Połączenie z: "+sts);
 						outputFile << "CONN:" << sts << endl; 
 						break;
+					case 'd':
+						v("Rozłączenie z hostem...");
+						outputFile << "DISC:" << endl; 
+						send(sock , "" , strlen("") , 0 );
+						break;
 					case 's':
 						v("Wysyłanie: "+sts);
 						outputFile << "SENT:" << sts << endl; 
@@ -105,6 +110,7 @@ int main (int argc, char **argv)
 						break;
 					case 'q':
 						v("Opuszczanie programu.");
+
 						outputFile << "EXIT" << endl; 
 						break;
 					default:
@@ -117,7 +123,6 @@ int main (int argc, char **argv)
 			outputFile.close();
 		}
 	}
-	send(sock , "" , strlen("") , 0 );
 	v("Koniec");
 	return 0;
 }
