@@ -1,8 +1,13 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/socket.h>
+#include <netinet/in.h> 
+#include <arpa/inet.h>
 #include <unistd.h>
 #include <fstream>
+#include <string.h>
+#define PORT 8080 
 using namespace std;
 
 int testFlag = 0;
@@ -14,23 +19,6 @@ void v(string s) {
 void v(string s1, char* s2) {
 	if(verboseFlag) fprintf(stdout, "%s %s\n", s1.c_str(), s2);
 }
-void executeTestCommand(string line) {
-	switch(line.at(0)) {
-		case 'c':
-		v("Połączenie z xxx.");
-		break;
-		case 's':
-		v("Wysyłanie xxx.");
-		break;
-		case 'q':
-		v("Opuszczanie programu.");
-		break;
-		default:
-		v("Nieprawidłowe polecenie w pliku tekstowym.");
-		break;
-	}
-}
-
 int main (int argc, char **argv)
 {
 
@@ -40,6 +28,33 @@ int main (int argc, char **argv)
 	int index, c, r;
 
 	opterr = 0;
+
+	struct sockaddr_in address; 
+   	int sock = 0, valread; 
+    	struct sockaddr_in serv_addr; 
+   	char *hello = "Client test message"; 
+   	char buffer[1024] = {0}; 
+    	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) { 
+        	perror("Socket creation error: "); 
+        	exit(EXIT_FAILURE);  
+    	} 
+	memset(&serv_addr, '0', sizeof(serv_addr)); 
+   
+    	serv_addr.sin_family = AF_INET; 
+    	serv_addr.sin_port = htons(PORT); 
+
+	// Convert IPv4 and IPv6 addresses from text to binary form 
+    	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)  { 
+        	perror("Invalid address/ Address not supported: "); 
+        	exit(EXIT_FAILURE);  
+    	} 
+	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) { 
+		perror("Connection failed: "); 
+      		exit(EXIT_FAILURE);  
+    	} 
+	
+	
+	
 
 	while( ( c = getopt(argc, argv, "t:o:v") ) != -1  )
 		switch( c )
@@ -77,15 +92,28 @@ int main (int argc, char **argv)
 			string line;
 			srand (time(NULL));
     			while (getline(inputFile, line)) {
-				executeTestCommand(line);
-				r = rand() % 10 + 1;
-				if(r % 2 == 0) outputFile << "PASS" << endl;
-				else outputFile << "FAIL" << endl;
+				string sts = line.substr(2, 1024);
+				switch(line.at(0)) {
+					case 'c':
+						v("Połączenie z xxx.");
+						break;
+					case 's':
+						v("Wysyłanie " + sts);
+						send(sock , sts.c_str() , 1024 , 0 );
+						break;
+					case 'q':
+						v("Opuszczanie programu.");
+						break;
+					default:
+						v("Nieprawidłowe polecenie w pliku tekstowym.");
+						break;
+				}
 			}
 	 		inputFile.close();
 			outputFile.close();
 		}
 	}
+	send(sock , "" , strlen("") , 0 );
 	v("Koniec");
 	return 0;
 }
