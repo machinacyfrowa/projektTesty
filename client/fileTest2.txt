@@ -1,0 +1,6 @@
+c 127.0.0.1
+s bede pobieral plik
+g spayload.txt
+s plik pobrany
+d
+q

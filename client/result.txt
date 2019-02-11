@@ -5,7 +5,14 @@ SENT: Wincyj tekstu !!!!
 SENT: PRZESTAN WYSYLAC TEKST !!!!!!
 EXIT
 
-s plik poszedwynik TC2:
+wynik TC2:
+CONN: 127.0.0.1:8080
+SENT: Wysle troche tekstu
+SENT: Wincyj tekstu !!!!
+SENT: PRZESTAN WYSYLAC TEKST !!!!!!
+EXIT
+
+wynik TC2:
 CONN: 127.0.0.1:8080
 SENT: Wysle troche tekstu
 SENT: Wincyj tekstu !!!!

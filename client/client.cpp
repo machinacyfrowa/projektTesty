@@ -1,3 +1,7 @@
+/*
+ * Klient unix sockets
+ * Paweł Zawadzki
+ */
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,15 +46,7 @@ int main (int argc, char **argv)
     	serv_addr.sin_family = AF_INET; 
     	serv_addr.sin_port = htons(PORT); 
 
-	// Convert IPv4 and IPv6 addresses from text to binary form 
-    	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)  { 
-        	perror("Invalid address/ Address not supported: "); 
-        	exit(EXIT_FAILURE);  
-    	} 
-	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) { 
-		perror("Connection failed: "); 
-      		exit(EXIT_FAILURE);  
-    	} 
+	
 	
 	
 	
@@ -96,17 +92,71 @@ int main (int argc, char **argv)
 				switch(line.at(0)) {
 					case 'c':
 						v("Połączenie z: "+sts);
-						outputFile << "CONN:" << sts << endl; 
+						// Convert IPv4 and IPv6 addresses from text to binary form 
+    						if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)  { 
+        						perror("Invalid address/ Address not supported: "); 
+        						exit(EXIT_FAILURE);  
+    						} 
+						if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) { 
+							perror("Connection failed: "); 
+      							exit(EXIT_FAILURE);  
+    						} 
+						outputFile << "CONN: " << sts << endl; 
 						break;
 					case 'd':
 						v("Rozłączenie z hostem...");
-						outputFile << "DISC:" << endl; 
-						send(sock , "" , strlen("") , 0 );
+						outputFile << "DISC: " << endl; 
+						send(sock , "d" , strlen("d") , 0 );
 						break;
 					case 's':
 						v("Wysyłanie: "+sts);
-						outputFile << "SENT:" << sts << endl; 
-						send(sock , sts.c_str() , 1024 , 0 );
+						outputFile << "SENT: " << sts << endl; 
+						send(sock , line.c_str() , sts.length() , 0 );
+						break;
+					case 'p':
+						{
+						v("Wysyłanie pliku: "+ sts);
+						char * inputFileName = new char[sts.length()+1];
+						strcpy(inputFileName, sts.c_str());
+						ifstream inputFileStream(inputFileName);
+						if(inputFileStream) {
+							
+							inputFileStream.seekg(0, inputFileStream.end);
+							int fileSize = inputFileStream.tellg();
+							inputFileStream.seekg(0, inputFileStream.beg);
+							char * buffer = new char [fileSize];
+							inputFileStream.read(buffer, fileSize);
+							//send file info
+							string fileInfo = "p ";
+							fileInfo.append(inputFileName);
+							send(sock, fileInfo.c_str(), fileInfo.length(), 0);
+							//send contents
+							send(sock, buffer, fileSize, 0);
+							//cleanup
+							delete[] buffer;
+							inputFileStream.close();
+						}
+						}
+						break;
+					case 'g':
+						v("Odbieranie pliku: "+ sts);
+						{
+						char * outputFileName = new char[sts.length()+1];
+						strcpy(outputFileName, sts.c_str());
+						ofstream outputFileStream(outputFileName);
+						if(outputFileStream) {
+							//send file info
+							string fileInfo = "g ";
+							fileInfo.append(outputFileName);
+							send(sock, fileInfo.c_str(), fileInfo.length(), 0);
+							char * buffer = new char [1024];
+							read(sock, buffer, 1024);
+							outputFileStream << buffer;
+							delete[] buffer;
+							outputFileStream.close();
+						}
+						
+						}
 						break;
 					case 'q':
 						v("Opuszczanie programu.");

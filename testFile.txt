@@ -1,0 +1,6 @@
+c 127.0.0.1
+s bede wysylal plik
+p pliczek.txt
+s plik poszedl
+d
+q

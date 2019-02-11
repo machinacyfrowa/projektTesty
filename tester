@@ -28,58 +28,71 @@ public class TestsController
             proc.StartInfo.Arguments = "-c \" " + command + " \"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
-            proc.Start ();
-
-            
+            proc.Start (); 
         }
 
 
     static public void Main ()
-    {	
-	ExecuteCommand("rm result.txt");
-	ExecuteCommand("echo -n > result.txt");
+    {
+//	ExecuteCommand("echo -n > result.txt");
 	TestCase();
     }
 
     public static void TestCase()
     {   
-	Console.WriteLine("Podaj nr. Testu (1-9)(TRIAL DZIALA TYLKO 1!)"); 
-        switchCase=Int32.Parse(Console.ReadLine());
+	Console.WriteLine("Podaj nr. Testu (1-3)");
+        try
+        { 
+           switchCase=Int32.Parse(Console.ReadLine());
+        }
+        catch
+        {
+           switchCase=69;
+        }
+
         switch(switchCase)
         {
            case 1:
-              Console.WriteLine("Zajebiście");
 	      TestCase1();
               break;
 	   case 2:
 	      TestCase2();
 	      break;
+	   case 3:
+	      TestCase3();
+	      break;
    	   default:
-      	      Console.WriteLine("Error kurwa!");
-	      TestCase();
+      	      Console.WriteLine("Nie ma takiego testu!");
 	      break;
         }
     }
     
     public static void TestCase1()
     {
-       ExecuteCommand("echo Sprawdz mnie kurwa > TestCase1.txt");
-       ExecuteCommand("./client/client -t TestCase1.txt -o output.txt");
+       ExecuteCommand("echo Sprawdz plik > TestCase1.txt");
+       ExecuteCommand("./client/client -t TestCase1.txt -o output.txt -v");
        ExecuteCommand("rm TestCase1.txt");
        ExecuteCommand("cat output.txt");
        ExecuteCommand("echo wynik TC1: >> result.txt");
-       ExecuteCommand("cat output.txt >> result.txt"); 
+       ExecuteCommand("cat output.txt >> result.txt");
+       ExecuteCommand("echo       >> result.txt"); 
     }
 	
     public static void TestCase2()
     {
-      	ExecuteCommand("echo test");
         ExecuteCommand2("setsid ./server/server");
-	Thread.Sleep(4000);
-	ExecuteCommand("echo rodzer dat");
-	ExecuteCommand("./client/client -t xxx.txt -o output.txt");
-      
+	Thread.Sleep(1000);
+	ExecuteCommand("./client/client -t xxx.txt -o output.txt -v");
+	ExecuteCommand("echo wynik TC2: >> result.txt");
+        ExecuteCommand("cat output.txt >> result.txt");
+	ExecuteCommand("echo        >> result.txt");
     }
-	
+    
+    public static void TestCase3()
+    {
+	ExecuteCommand2("setsid ./server/server");
+	Thread.Sleep(1000);
+	ExecuteCommand("./client/client -t ./client/testFile.txt -o output.txt -v");
+    }
 }
 
